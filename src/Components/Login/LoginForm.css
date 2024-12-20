@@ -1,0 +1,76 @@
+.wrapper {
+    height : 580px;
+    
+    background : white;
+    color :rgb(166, 2, 2);
+    border-radius: 10px;
+    padding: 30px;
+    }
+    .wrapper {
+    font-size : 16px;
+    text-align : center;
+    }
+    .wrapper .input-box {
+    position : relative;
+    width : 100%;
+    height : 80px;
+    margin : 30px 0;
+    }
+    .input-box {
+    width : 50%;
+    height : 50%;
+    background : transparent;
+    border : none;
+    outline : none;
+    border : rgba(119, 3, 3, 0.2) solid 2px;
+    border-radius : 40px;
+    font-size : 14px;
+    color : #020202;
+    padding : 20px 45px 20px 20px;
+    }
+    .input-box input::placeholder {
+    color : black;
+    }
+    .input-box .icon {
+    position : absolute;
+    right : 20px;
+    top : 50%;
+    transform : translateY(-50%);
+    font-size : 16px;
+    }
+    .wrapper .remember-forgot {
+    display : flex;
+    justify-content : space-between;
+    font-size : 10px;
+    margin : -30px 0 30px;
+    }
+    .remember-forgot {
+    accent-color : #fff;
+    margin-right : 4px;
+    }
+    .remember-forgot a {
+    color : #fff;
+    text-decoration : none;
+    }
+    .remember-forgot a:hover {
+    text-decoration : underline;
+    }
+    .wrapper .button {
+    width : 100%;
+    background : #fff;
+    border : none;
+    outline : none;
+    border-radius : 40px;
+    box-shadow : 0 0 10px rgb(0, 0, 0, 0.1);
+    cursor : pointer;
+    font-size : 16px;
+    color : #333;
+    font-weight : 700;
+    }
+    .responsive-image {
+        max-width: 100%;
+        height: auto;
+    }
+   
+      
+      
