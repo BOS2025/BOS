@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect} from "react";
 import "./LoginForm.css";
 import image from "../Assets/image.png";
 import { FaUser } from "react-icons/fa";
@@ -7,7 +7,35 @@ import { RiLockPasswordFill } from "react-icons/ri";
 const LoginForm = () => {
   const [email, setEmail] = useState(""); 
   const [password, setPassword] = useState("");
+  const [rememberMe, setRememberMe] = useState(false);
   const [error, setError] = useState(""); 
+  const [showForgotPassword, setShowForgotPassword] = useState(false);
+  const [resetEmail, setResetEmail] = useState("");
+
+  useEffect(() => {
+    const savedEmail = localStorage.getItem("email");
+    const savedPassword = localStorage.getItem("password");
+    if (savedEmail && savedPassword) {
+      setEmail(savedEmail);
+      setPassword(savedPassword);
+    }
+  }, []);
+  const handleRememberMe = (event) => {
+    if (event.target.checked) {
+      localStorage.setItem("email", email);
+      localStorage.setItem("password", password);
+    } else {
+      localStorage.removeItem("email");
+      localStorage.removeItem("password");
+    }
+  };
+
+  const handleForgotPasswordSubmit = (event) => {
+    event.preventDefault();
+    alert(`A password reset link has been sent to ${resetEmail}.`);
+    setShowForgotPassword(false);
+  };
+  
 
 
   const allowedCredentials = [
@@ -24,6 +52,14 @@ const LoginForm = () => {
     { email: "deanap@somaiya.edu", password: "deanap2024" },
   ];
 
+  useEffect(() => {
+    const savedEmail = localStorage.getItem("rememberedEmail");
+    if (savedEmail) {
+      setEmail(savedEmail);
+      setRememberMe(true);
+    }
+  }, []);
+
   const handleSubmit = (event) => {
     event.preventDefault(); 
 
@@ -34,10 +70,17 @@ const LoginForm = () => {
 
     if (validCredential) {
       alert("Login Successful!");
+      if (rememberMe) {
+        localStorage.setItem("rememberedEmail", email);
+      } else {
+        localStorage.removeItem("rememberedEmail");
+      }
     } else {
       setError("Invalid email or password. Please check your credentials.");
     }
   };
+
+  
 
   return (
     <div className="wrapper">
@@ -77,9 +120,14 @@ const LoginForm = () => {
         {error && <p style={{ color: "red" }}>{error}</p>} {}
         <div className="remember-forget">
           <label>
-            <input type="checkbox" /> Remember me
+            <input type="checkbox" checked={rememberMe} onChange={(e) => setRememberMe(e.target.checked)}
+            /> {" "}Remember me
           </label>
-          <a href="#forgot-password">
+          <a href="#forgot-password" 
+          onClick={(e) => {
+            e.preventDefault();  // Prevents default link behavior
+            setShowForgotPassword(true); // Show the forgot password form
+          }} >
             <pre>Forgot password?</pre>
           </a>
         </div>
@@ -89,6 +137,24 @@ const LoginForm = () => {
           value="Login"
         />
       </form>
+
+      {/* Forgot Password Form */}
+      {showForgotPassword && (
+        <div className="forgot-password-form">
+          <h3>Reset Your Password</h3>
+          <form onSubmit={handleForgotPasswordSubmit}>
+            <input
+              type="email"
+              placeholder="Enter your registered email"
+              value={resetEmail}
+              onChange={(e) => setResetEmail(e.target.value)}
+              required
+            />
+            <button type="submit">Send Reset Link</button>
+          </form>
+          <button onClick={() => setShowForgotPassword(false)}>Cancel</button>
+          </div>
+      )}
     </div>
   );
 };
