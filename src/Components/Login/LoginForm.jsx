@@ -13,20 +13,22 @@ const LoginForm = () => {
   const [resetEmail, setResetEmail] = useState("");
 
   useEffect(() => {
-    const savedEmail = localStorage.getItem("email");
-    const savedPassword = localStorage.getItem("password");
+    const savedEmail = localStorage.getItem("rememberedemail");
+    const savedPassword = localStorage.getItem("rememberedpassword");
     if (savedEmail && savedPassword) {
       setEmail(savedEmail);
       setPassword(savedPassword);
+      setRememberMe(true);
     }
   }, []);
-  const handleRememberMe = (event) => {
-    if (event.target.checked) {
-      localStorage.setItem("email", email);
-      localStorage.setItem("password", password);
+  const handleRememberMe = (checked) => {
+    setRememberMe(checked);
+    if (checked) {
+      localStorage.setItem("rememberedEmail", email);
+      localStorage.setItem("rememberedPassword", password);
     } else {
-      localStorage.removeItem("email");
-      localStorage.removeItem("password");
+      localStorage.removeItem("rememberedemail");
+      localStorage.removeItem("rememberedpassword");
     }
   };
 
@@ -120,7 +122,7 @@ const LoginForm = () => {
         {error && <p style={{ color: "red" }}>{error}</p>} {}
         <div className="remember-forget">
           <label>
-            <input type="checkbox" checked={rememberMe} onChange={(e) => setRememberMe(e.target.checked)}
+            <input type="checkbox" checked={rememberMe} onChange={(e) => handleRememberMe(e.target.checked)}
             /> {" "}Remember me
           </label>
           <a href="#forgot-password" 
