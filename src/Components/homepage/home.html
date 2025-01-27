@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Scheduler Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header Bar -->
+    <header class="header-bar">
+        <img src="../../Components/Assets/image.png" alt="Left Logo" class="leftlogo">
+        <h1 class="college-name">Somaiya Scheduler</h1>
+        <img src="../../Components/Assets/somaiyatrust.png" alt="Right Logo" class="rightlogo">
+    </header>
+    
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="../../Components/homepage/home.html">Home</a></li>
+            <li><a href="#">Schedule</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Login/Signup</a></li>
+        </ul>
+    </nav>
+
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Right Vertical Stream Bar -->
+        <div class="stream-bar" id="streamBar">
+            <h3>Streams</h3>
+            <ul>
+                <li onclick="showPrograms('Engineering')">Engineering & Technology</li>
+                <li onclick="showPrograms('Management')">Management Studies</li>
+                <li onclick="showPrograms('Education')">Education</li>
+                <li onclick="showPrograms('Dharama')">Dharama Studies</li>
+                <li onclick="showPrograms('Commerece')">Commerece & Business Studies</li>
+                <li onclick="showPrograms('Science')">Science</li>
+                <li onclick="showPrograms('Humanities')">Humanities & Social Science</li>
+                <li onclick="showPrograms('Music')">Music Performance & Art</li>
+                <li onclick="showPrograms('Language')">Language & Literature</li>
+            </ul>
+            </div>
+
+        <!-- Content Area -->
+        <div class="content-area" id="contentArea">
+            <p>Select a stream to view its programs and faculty.</p>
+        </div>
+    </div>
+</div>
+<footer>
+    <div class="terms">
+        <a href="#">Terms and Policies</a>
+        <img src="../../Components/Assets/redlines.png" alt="Footer Logo" class="footer-image">
+    </div>
+</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
