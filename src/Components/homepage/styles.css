@@ -1,0 +1,141 @@
+/* General Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Header Bar */
+.header-bar {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 10px 20px;
+    height: 80px;
+    background-color: white;
+    border-bottom: 2px white;
+}
+
+.header-bar .logo {
+    height: 50px;
+    width: auto; 
+}
+
+.header-bar .college-name {
+    font-size: 35px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    flex: 1; /* Take available space to center-align text */
+}
+
+/* Navigation Bar */
+.navbar {
+    background-color: rgb(228, 227, 227);
+    padding: 10px 20px;
+    display:flex;
+    justify-content: center;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar ul li {
+    margin-right: 20px;
+    margin-left: 30px;
+}
+
+.navbar ul li a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    text-align: center;
+}
+
+.navbar ul li a:hover {
+    text-decoration: underline;
+    color: red;
+}
+
+/* Main Container */
+.main-container {
+    display: flex;
+    flex: 1; /* Make the main content fill the remaining height */
+}
+
+/* Stream Bar (Right Side) */
+.stream-bar {
+    width: 20%; 
+    background-color: #f0f0f0;
+    border-left: 2px solid #ccc;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.stream-bar h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+.stream-bar ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.stream-bar ul li {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s;
+}
+
+.stream-bar ul li:hover {
+    background-color: black;
+    color: white;
+}
+
+/* Content Area (Left Side) */
+.content-area {
+    flex: 1; 
+    padding: 20px;
+    background-color: #fff;
+    border-left: 2px solid #ccc;
+    overflow-y: auto;
+}
+
+.content-area p {
+    font-size: 16px;
+    color: #333;
+}
+footer {
+    background-color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.terms a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.terms a:hover {
+    text-decoration: underline;
+}
+
+.footer-image {
+    width: 100%;  /* Adjust the size as needed */
+    margin-top: 10px;
+    margin-bottom: 0px;
+    position: relative;
+}
